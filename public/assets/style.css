@@ -1,0 +1,57 @@
+body{
+	font-family: Montserrat;
+}
+.first-nav .first-ul {
+    display: inline;
+    list-style: none;
+
+}
+.first-nav ul li{
+}
+/*  */
+/* .navbar{
+	position: relative;
+	width: 100%;
+	top: 0px;
+	background-color: #fff;
+	z-index: 3;
+	box-shadow: 3px  1px 5px rgba(0,0,0,0.2)
+}
+.navbar-brand  img{
+	width: 206px;
+	height: 101.76px
+}
+#main-nav{
+	background-color: #fff;
+} */
+/*.navbar-nav{
+	margin-left: 300px
+}*/
+/* .navbar-nav .nav-link{
+	font-size: 16px;
+	font-family: Montserrat; */
+	/*font-style: normal;*/
+	/* font-weight: 600;
+	margin-left: 60px;
+	padding-top: 63px;
+	padding-bottom: 64px;
+}
+.navbar-nav .nav-item.active > .nav-link ,
+.navbar-nav .nav-item .nav-link:hover
+{
+	color: #ec1c23;
+}
+@media (max-width: 320px) {
+	.navbar-nav .nav-item .nav-link{
+		padding: 0;
+		text-align: center;
+		margin: auto;
+	} */
+	/*.navbar-nav .nav-item.active > .nav-link{
+		color: rgba(0,0,0,.5)
+	}*/
+	/*.navbar-nav .nav-item.active > a:visited{
+		color: #ec1c23
+	}*/
+/* } */
+/*end navbar*/
