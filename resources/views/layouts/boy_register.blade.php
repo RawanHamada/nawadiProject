@@ -2,7 +2,7 @@
 
 @yield('content')
 
-<button>
+<button type="submit">
 {{-- {{ route('') }} --}}
 
     @yield('btn')
@@ -11,6 +11,8 @@
 </div>
 
 <script src="js/script.js"></script>
+
+@livewireScripts
 
 </body>
 </html>

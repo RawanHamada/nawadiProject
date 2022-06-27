@@ -9,11 +9,25 @@ class Club extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'city_name',
+        'city_id',
+        'club_name',
     ];
-    public function boys() {
-        return $this->hasMany(Boy::class);
+
+
+    /**
+     * Get the cities that owns the Club
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function cities()
+    {
+        return $this->belongsTo(City::class, 'city_id')->withDefault();
     }
+
+
+     // public function cities() {
+    //     return $this->hasMany(Boy::class);
+    // }
+
 
 }

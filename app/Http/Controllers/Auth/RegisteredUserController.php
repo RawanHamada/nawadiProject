@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Age;
+use App\Models\Boy;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -18,9 +21,11 @@ class RegisteredUserController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function create()
+    public function create($type = 'boy')
     {
-        return view('auth.register');
+        // $ages = Age::all();
+
+        return view('auth.register',compact('type'));
     }
 
     /**
@@ -31,24 +36,65 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function store(Request $request, $type)
     {
-        $request->validate([
+        // dd($request);
+        if ($type == 'boy') {
+            $guardName = 'web';
+            $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'record' => ['required', 'string', 'max:255'],
+            'f_phone' => ['required' ],
+            's_phone' => ['required'],
+            'class' => ['required' ],
+            'school' => ['required'],
+            'neighbor' => ['required'],
+            'age' => ['required'],
+            'move' => ['required'],
+            'photo' => ['nullable'],
+            'employee' => ['nullable'],
+            'condition' => ['required'],
         ]);
+         // Uploads photo For photo folder
+         $image = null;
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
+         if ($request->hasFile('photo')) {
+             $files = $request->file('photo'); // Uploaded File Objects
+
+                 $img_path = $files->store('/', [
+                     'disk' => 'photo',
+                 ]);
+
+                 $image = $img_path;
+
+
+         }else{
+             $image = null;
+         }
+         $boy =Boy::create([
+            'name' =>  $request->name,
+            'civil_record' =>  $request->record,
+            'first_phone' =>  $request->f_phone,
+            'second_phone' =>  $request->s_phone,
+            'class' =>  $request->class,
+            'school' =>  $request->school,
+            'neighborhood' =>  $request->neighbor,
+            'age' =>  $request->age,
+            'move' =>  $request->move,
+            'photo' => $image,
+            'employee' =>  $request->employee,
+            'condition' =>  $request->condition,
+
+
         ]);
+        // return view('boy.index');
 
-        event(new Registered($user));
+        event(new Registered($boy));
+        // Session::put('guardName', $guardName);
+        // Session::put('boy',  $request->name);
+        $boy = $request->session()->get('boy', $request->name);
 
-        Auth::login($user);
-
-        return redirect(RouteServiceProvider::HOME);
+        return view('boy.success_register', compact('boy'));
+    }
     }
 }

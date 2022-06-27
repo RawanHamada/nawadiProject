@@ -15,9 +15,18 @@ class CreateClubsTable extends Migration
     {
         Schema::create('clubs', function (Blueprint $table) {
             $table->id();
-            $table->string('name',20);
-            $table->string('city_name',20);
+
+
+            $table->foreignId('city_id')
+            ->nullable()
+            ->constrained('cities')
+            ->nullOnDelete();
+
+            $table->string('club_name',20);
             $table->timestamps();
+
+
+
         });
     }
 

@@ -40,10 +40,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'boy' => [
-            'driver' => 'session',
-            'provider' => 'boys',
-        ],
+        // 'boy' => [
+        //     'driver' => 'session',
+        //     'provider' => 'boys',
+        // ],
+        // 'girl' => [
+        //     'driver' => 'session',
+        //     'provider' => 'girls',
+        // ],
     ],
 
     /*
@@ -66,12 +70,16 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
-        ],
-        'boys' => [
-            'driver' => 'eloquent',
             'model' => App\Models\Boy::class,
         ],
+        // 'boys' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Models\Boy::class,
+        // ],
+        // 'girls' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Models\Girl::class,
+        // ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Boy;
 use App\Http\Controllers\Auth;
-
+use App\Models\Club;
+use App\Models\City;
+use App\Models\Age;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -14,36 +16,48 @@ use Illuminate\Support\Facades\DB;
 
 class OptionBoyController extends Controller
 {
-    // public function index($city)
-    // {
+    public function index(Request $request)
+    {
+        // $boy = $request->session()->get('boy');
+        $boy = session('boy');
 
-        // return view('boy.',compact('city'));
+        // $boy =  Auth::guard(session('boy'));
+        return view('boy.success_register', compact('boy'));
 
         // $city = Club::get();
-    // }
+    }
     public function create()
     {
         $boy = DB::table('boys')->get();
-        return view('boy.option_register',compact('boy'));
+        $clubs = Club::get();
+        $cities = City::all();
+        return view('boy.option_register',compact('boy','clubs','cities'));
     }
 
     public function store(Request $request)
     {
-            $request->validate([
-                'name' => ['required'],
+
+            $validator =$request->validate([
                 'city_name' => ['required'],
+                'club_name' => ['required'],
 
             ]);
-            Session::put('city',  $request->city_name);
-            Session::put('club',  $request->club_name);
 
-        $boy = Boy::create([
-            'name' => $request->club_name,
-            'city_name' => $request->city_name,
+            // if($validator->fails()){
+            //     dd($validator);
+            // }
 
-        ]);
+        //     Session::put('city',  $request->city_name);
+        //     Session::put('club',  $request->club_name);
 
-        return view('auth.register');
+        //     Club::create([
+        //     'club_name' => $request->club_name,
+        //     'city_name' => $request->city_name,
+
+        // ]);
+        $ages =Age::all();
+
+        return view('auth.register',compact('ages'));
 
 
 

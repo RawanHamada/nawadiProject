@@ -18,10 +18,12 @@ class Boy extends Model
         'neighborhood',
         'age',
         'move',
-        'gallery',
+        'photo',
+        'employee',
+        'condition',
     ];
     protected $casts = [
-        'gallery' => 'json',
+        'photo' => 'json',
         // 'clubs' => 'json',
     ];
 }

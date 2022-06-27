@@ -2,22 +2,14 @@
 
 namespace Database\Seeders;
 use App\Models\Club;
+use App\Models\City;
+// use Database\Seeders\DB;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class ClubSeeder extends Seeder
 {
-    // name of club
-    // protected $name;
-
-    // // name of city
-    // protected $city_name;
-
-    // public function __construct(Club $name , Club $city_name)
-    // {
-    //     $this->name = $name;
-    //     $this->city_name = $city_name;
-    // }
     /**
      * Run the database seeds.
      *
@@ -25,11 +17,26 @@ class ClubSeeder extends Seeder
      */
     public function run()
     {
-        // DB::table('clubs')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        DB::table('clubs')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+
         Club::create([
-            'name' => 'مدارس الصدارة',
-            'city_name' => 'الرياض',
+            'city_id' => 1,
+            'club_name' => 'مدارس الصدارة',
+
         ]);
+
+        // 'city_id' => City::get()->city_id,
+          // foreach(City::get() -> $city){
+            // 'city_id' => 1,
+            // }
+
+        // $this->club_name->insert([
+        //     'club_name' => 'مدارس الصدارة'
+        // ]);
+        // DB::table('clubs')->truncate();
+
         // $this->name->insert([
         //     'name' => 'مدارس الصدارة'
         // ]);

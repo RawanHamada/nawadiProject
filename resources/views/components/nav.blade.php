@@ -13,10 +13,12 @@
                     <a class="nav-link" href="{{ route('home') }}">الرئيسية <span class="sr-only">(current)</span></a>
                 </li>
                 <li @if (Request::is('boy/option_register'))  @endif class="nav-item">
-                    <a class="nav-link" href="{{ route('option') }}">تسجيل البنين</a>
+                    <a class="nav-link" href="{{route('boy.option')}}
+                    {{-- {{ route('register',['type' => 'boy']) }} --}}
+                    ">تسجيل البنين</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">تسجيل البنات</a>
+                    <a class="nav-link" href="{{ route('girl.create') }}">تسجيل البنات</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">بحث</a>

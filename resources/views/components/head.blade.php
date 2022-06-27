@@ -6,6 +6,8 @@
     <title>Boy Register</title>
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
+    @livewireStyles
+
 </head>
 
 <body>

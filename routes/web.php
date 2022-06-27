@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Boy\BoyController;
 use App\Http\Controllers\Boy\OptionBoyController;
+use App\Http\Controllers\Girl\GirlController;
 
 
 /*
@@ -26,37 +27,57 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+  // Start show Boy Routes
+  Route::group([
+    'prefix' => '/boy',
+    'as' => 'boy.',
+], function() {
+    Route::get('/option', [OptionBoyController::class, 'create'])
+    ->name('option');
+Route::post('/', [OptionBoyController::class, 'store'])->name('store');
+Route::post('/', [OptionBoyController::class, 'store'])->name('store');
+Route::post('/success_register', [OptionBoyController::class, 'index'])->name('success');
+
+
+    Route::get('/boy_information', [BoyController::class, 'index'])
+    ->name('info');
+
+});
+// End boy Routes
+
 // Boy Routes [ Namespace => app\Http\Controllers\Boy ]
 Route::namespace('/Boy')
-    // ->middleware(['auth'])
+    ->middleware(['auth:web'])
     ->group(function() {
 
         // Start Boy Controller
+        Route::get('/boy', [BoyController::class, 'index'])
+        ->name('boy.home');
 
-        Route::get('boy/option/', [OptionBoyController::class, 'create'])
-            ->name('option');
-        Route::post('/', [OptionBoyController::class, 'store'])->name('store');
 
         // End Boy Controller
 
-        // Start show Boy Routes
-        Route::group([
-            'prefix' => '/boy',
-            'as' => 'boy.',
-        ], function() {
 
-            // Route::post('/{city}', function () {
-            //     return view('');
-            // })->name('op');
 
-            Route::get('/second_register', [BoyController::class, 'create'])
-            ->name('sec_register');
 
-            Route::get('/boy_information', [BoyController::class, 'index'])
-            ->name('info');
+        // Girl Routes [ Namespace => app\Http\Controllers\Girl ]
+        Route::namespace('/Girl')
+        // ->middleware(['auth:web'])
+        ->group(function() {
 
-        });
-        // End boy Routes
+
+    Route::group([
+        'prefix' => 'girl',
+        'as' => 'girl.',
+    ], function() {
+        Route::get('/create', [GirlController::class, 'create'])->name('create');
+        Route::post('/', [GirlController::class, 'store'])->name('store');
+
+
+
+    });
+
+});
 
     });
 

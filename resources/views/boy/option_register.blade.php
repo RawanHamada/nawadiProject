@@ -2,7 +2,7 @@
 @section('page_header', 'تسجيل البنين')
 @section('btn', 'التالي')
 @section('content')
-    @if ($errors->any())
+    {{-- @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -10,24 +10,37 @@
                 @endforeach
             </ul>
         </div>
-    @endif
-    <form id="form" class="form" action="
-    {{ route('store') }}
-    {{-- {{ route('register') }} --}}
-    " method="POST">
+    @endif --}}
+       {{-- {{dd($club->city_name)}} --}}
+
+    <form id="form" class="form" action="{{ route('boy.store') }}" method="POST">
+        @csrf
         <div class="age">
             <label for="text">المدينة</label>
             <select name="city_name" class="form-control">
                 <option selected>اختر</option>
-                <option>الرياض</option>
+                @foreach ($cities as $city)
+                <option value="
+                {{$city->id}}
+                ">
+                    {{$city->city_name}}
+                </option>
+                @endforeach
             </select>
         </div>
         <div class="age">
             <label for="text">الاندية المتاحة</label>
             <select name="club_name" class="form-control">
                 <option selected>اختر</option>
-                <option>مدارس الصدارة</option>
+                @foreach ($clubs as $club)
+                <option value="{{$club->club_name}}">{{$club->club_name}}</option>
+                @endforeach
             </select>
         </div>
 
-    @endsection
+        {{-- <button type="submit">
+            التالي
+        </button>
+    </form> --}}
+
+@endsection

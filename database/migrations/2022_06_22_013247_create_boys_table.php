@@ -24,13 +24,16 @@ class CreateBoysTable extends Migration
             $table->string('neighborhood',100);
             $table->string('age',100);
             $table->enum('move',['yes','no'])->default('yes');
-            $table->json('gallery');
+            $table->json('photo');
+            $table->string('employee');
+            $table->enum('condition',['yes','no'])->default('no');
+
             $table->rememberToken();
 
-            $table->foreignId('club_id')
-            ->nullable()
-            ->constrained('clubs')
-            ->nullOnDelete();
+            // $table->foreignId('club_id')
+            // ->nullable()
+            // ->constrained('clubs')
+            // ->nullOnDelete();
 
             $table->timestamps();
         });
