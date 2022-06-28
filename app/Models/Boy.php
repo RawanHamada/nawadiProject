@@ -21,9 +21,16 @@ class Boy extends Model
         'photo',
         'employee',
         'condition',
+        'age_id'
     ];
     protected $casts = [
         'photo' => 'json',
         // 'clubs' => 'json',
     ];
+
+    public function age()
+    {
+        return $this->belongsTo(Age::class, 'age_id')->withDefault();
+    }
+
 }

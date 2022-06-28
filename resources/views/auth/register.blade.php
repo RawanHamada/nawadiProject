@@ -62,7 +62,7 @@
             <select name="age" class="form-control">
                 <option selected>اختر الفئة العمرية</option>
                 @foreach ($ages as $age)
-                <option value="{{ $age->id }}">
+                <option value="{{ $age->age_group }}">
                     {{ $age->age_group }}
                 </option>
             @endforeach

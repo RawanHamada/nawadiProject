@@ -4,6 +4,7 @@ namespace Database\Seeders;
 use App\Models\City;
 use App\Models\Club;
 use App\Models\Age;
+use App\Models\Admin;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
@@ -20,6 +21,7 @@ class DatabaseSeeder extends Seeder
             CitySeeder::class,
             ClubSeeder::class,
             AgeSeeder::class,
+            AdminsSeeder::class,
 
         ]);
 

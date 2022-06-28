@@ -75,7 +75,7 @@ class RegisteredUserController extends Controller
             'name' =>  $request->name,
             'civil_record' =>  $request->record,
             'first_phone' =>  $request->f_phone,
-            'second_phone' =>  $request->s_phone,
+            'second_phone' =>  $request->s_phone+1,
             'class' =>  $request->class,
             'school' =>  $request->school,
             'neighborhood' =>  $request->neighbor,
@@ -84,17 +84,17 @@ class RegisteredUserController extends Controller
             'photo' => $image,
             'employee' =>  $request->employee,
             'condition' =>  $request->condition,
-
-
+            'year' =>  2020+1,
         ]);
         // return view('boy.index');
 
         event(new Registered($boy));
         // Session::put('guardName', $guardName);
         // Session::put('boy',  $request->name);
-        $boy = $request->session()->get('boy', $request->name);
+        $boy_name = $request->session()->get('boy', $request->name);
+        $boy_phone = $request->session()->get('boy', $request->f_phone);
 
-        return view('boy.success_register', compact('boy'));
+        return view('boy.success_register', compact('boy_name','boy_phone'));
     }
     }
 }

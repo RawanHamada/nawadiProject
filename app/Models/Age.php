@@ -11,4 +11,9 @@ class Age extends Model
     protected $fillable = [
         'age_group',
     ];
+
+    public function boys()
+    {
+        return $this->hasMany(Boy::class, 'age_id')->withDefault();
+    }
 }

@@ -32,14 +32,14 @@
                                 <tr>
                                     <th scope="col">الرقم</th>
                                     <th scope="col">الاسم</th>
-                                    <th scope="col">السجل المدني</th>
-                                    <th scope="col">رقم جوال ولي الأمر</th>
-                                    <th scope="col">الصف المنتقل له</th>
-                                    <th scope="col">المدرسة الحالية</th>
-                                    <th scope="col">الحي</th>
-                                    <th scope="col">الفئة العمرية</th>
-                                    <th scope="col">الرغبة في النقل</th>
-                                    <th scope="col">صورة الطالب</th>
+                                    <th scope="col">الأحد</th>
+                                    <th scope="col">الاثنين</th>
+                                    <th scope="col">الثلاثاء</th>
+                                    <th scope="col">الأربعاء</th>
+                                    <th scope="col">الخميس</th>
+                                    <th scope="col">ملاحظات </th>
+                                    {{-- <th scope="col">الرغبة في النقل</th> --}}
+                                    {{-- <th scope="col">صورة الطالب</th> --}}
                                 </tr>
                             </thead>
 

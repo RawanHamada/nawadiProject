@@ -26,9 +26,15 @@ class CreateBoysTable extends Migration
             $table->enum('move',['yes','no'])->default('yes');
             $table->json('photo');
             $table->string('employee');
+            $table->integer('year')->nullable();
             $table->enum('condition',['yes','no'])->default('no');
 
             $table->rememberToken();
+
+            $table->foreignId('age_id')
+            ->nullable()
+            ->constrained('ages')
+            ->nullOnDelete();
 
             // $table->foreignId('club_id')
             // ->nullable()

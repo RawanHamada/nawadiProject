@@ -21,7 +21,7 @@ class AgeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('ages')->truncate();
+        // DB::table('ages')->truncate();
         Age::create([
             'age_group' =>  'براعم من 7 سنوات الى 9 سنوات',
         ]);

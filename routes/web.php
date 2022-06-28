@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Boy\BoyController;
 use App\Http\Controllers\Boy\OptionBoyController;
 use App\Http\Controllers\Girl\GirlController;
+use App\Http\Controllers\Admin\AdminController;
 
 
 /*
@@ -80,5 +81,45 @@ Route::namespace('/Boy')
 });
 
     });
+    // Admin Routes [ Namespace => app\Http\Controllers\Admin ]
+// Route::group([
+//     'prefix' => '/admin',
+//     'namespace' => 'Admin',
+//     'middleware' => ['auth:admin'],
+// ], function(){
+
+//     Route::prefix('/info')
+//     ->as('info.')
+//     ->group(function() {
+
+//         Route::get('/', [AdminController::class, 'index'])
+//         ->name('index');
+//         // Route::get('/create', [Controller::class, 'create'])->name('create');
+//         // Route::post('/', [Controller::class, 'store'])->name('store');
+
+
+
+//     });
+
+// });
+
+    // Admin Routes [ Namespace => app\Http\Controllers\Admin ]
+    Route::namespace('/Admin')
+    ->middleware(['auth:admin'])
+    ->group(function() {
+
+        Route::group([
+            'prefix' => '/admin',
+            'as' => 'admin.',
+        ], function() {
+            Route::get('/', [AdminController::class, 'index'])
+            ->name('index');
+        });
+         // End Workspace Routes
+
+    });
+
+
+
 
 

@@ -26,6 +26,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">اتصل بنا</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}
+                    ">تسجيل دخول</a>
+                </li>
             </ul>
         </div>
     </nav>
