@@ -21,18 +21,20 @@ class AgeSeeder extends Seeder
      */
     public function run()
     {
-        // DB::table('ages')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        DB::table('ages')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
         Age::create([
-            'age_group' =>  'براعم من 7 سنوات الى 9 سنوات',
+            'age_group' =>  ' من أول حتى ثالث',
         ]);
         Age::create([
-            'age_group' =>  'اشبال من 9 سنوات الى 12 سنة',
+            'age_group' =>  'من رابع حتى سادس',
         ]);
         Age::create([
-            'age_group' =>  'فتيان من 12 سنة الى 15 سنة',
+            'age_group' =>  'من أول متوسط حتى ثالث متوسط',
         ]);
         Age::create([
-            'age_group' => 'شباب من 16 سنة فأكثر'
+            'age_group' => 'من أول ثانوي  فأعلى'
     ]);
 
     }

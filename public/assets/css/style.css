@@ -301,3 +301,96 @@ table tr td [class^="ti-"] {
 	height: 550px;
 }
 /* end style register info */
+
+/* boy_info */
+.show{
+    background-color: #0e90db;
+    border: none;
+    padding: 1vh 4vh;
+    margin: auto;
+}
+/* end boy_info */
+/* start contact style  */
+#contact-form {
+    padding: 100px 0;
+    background:#f9f9f9;
+  }
+  #contact-form form input,
+  #contact-form form textarea {
+    padding: 24px 20px 0;
+    border-color: #0e90db;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #97a0af;
+    box-shadow: none;
+  }
+  #contact-form form input {
+    margin-bottom: 15px;
+    padding: 24px 27px;
+  }
+  #contact-form form textarea {
+    margin-bottom: 28px;
+    min-height: 172px;
+    resize: none;
+  }
+  #contact-form form button {
+    float: right;
+    color: #fff;
+    font-size: 16px;
+    padding: 17px 43px;
+    background: #0e90db;
+    border-radius: 40px;
+    font-weight: 600;
+    border-color: transparent;
+    transition: 0.3s;
+  }
+  #contact-form form button:hover {
+    background: none;
+    color: #0e90db;
+    border-color: #0e90db;
+  }
+
+  .title {
+      margin: auto;
+    text-align: center;
+    padding-bottom: 70px;
+  }
+  .title h2 {
+    color: #333;
+    font-size: 25px;
+    padding-bottom: 25px;
+    text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+  }
+
+  .title h2:before {
+      content: '';
+      width: 40px;
+      height: 2px;
+      background: #0e90db;
+      position: absolute;
+      top: 12px;
+      left: -60px;
+  }
+  .title h2:after {
+      content: '';
+      width: 40px;
+      height: 2px;
+      background: #0e90db;
+      position: absolute;
+      top: 12px;
+      right: -60px;
+  }
+  .title .email , .title .phone{
+      color: #0e90db;
+      font-weight: 500
+  }
+
+  .title p {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+    color: #817C7C;
+  }
+/* end contact style  */

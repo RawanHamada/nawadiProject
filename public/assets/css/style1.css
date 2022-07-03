@@ -217,7 +217,22 @@
 
 /*end sec-one*/
 
-
-
-
 /*end navbar*/
+/* page of choose gender */
+.sec-one #btn-boy{
+	padding: 2vh 5vh;
+	background-color: #210f8b;
+	margin-left: 70px;
+	color: #fff;
+	border:none;
+}
+.sec-one #btn-girl{
+	background: none;
+	border:1px solid;
+	padding: 2vh 5vh;
+	background-color: #210f8b;
+	margin-left: 70px;
+	color: #fff;
+	border:none;
+}
+/* page of choose gender */

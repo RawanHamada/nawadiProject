@@ -3,56 +3,29 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        @yield('title')
-    </title>
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/all.min.css') }}">
+    <title>Form Validation - #073 of #100Days100Projects</title>
+
+
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
 </head>
 
-<body style="display: block">
-    <x-nav />
-    <div class="col-12 mt-5">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="header-title">
-                    @yield('page_header')
-                </h4>
-                <h4 class="sub-header">
-                    @yield('sub_header')
-                </h4>
-                <div class="single-table">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th scope="col">الرقم</th>
-                                    <th scope="col">الاسم</th>
-                                    <th scope="col">الأحد</th>
-                                    <th scope="col">الاثنين</th>
-                                    <th scope="col">الثلاثاء</th>
-                                    <th scope="col">الأربعاء</th>
-                                    <th scope="col">الخميس</th>
-                                    <th scope="col">ملاحظات </th>
-                                    {{-- <th scope="col">الرغبة في النقل</th> --}}
-                                    {{-- <th scope="col">صورة الطالب</th> --}}
-                                </tr>
-                            </thead>
+<body >
 
-                            @yield('content')
 
-                        </table>
-                    </div>
-                </div>
-            </div>
+    {{-- @yield('nav') --}}
+
+    <div class="cont">
+        <div class="header">
+            <h2>@yield('header')</h2>
         </div>
+        <div class="show">
+            @yield('content')
+        </div>
+
     </div>
 
-
+    <script src="js/script.js"></script>
 
 </body>
 

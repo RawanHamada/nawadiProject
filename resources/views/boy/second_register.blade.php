@@ -1,4 +1,4 @@
-@extends('layouts.boy_register')
+@extends('layouts.register')
 @section('page_header', 'تسجيل البنين')
 @section('btn', 'تسجيل')
 @section('content')

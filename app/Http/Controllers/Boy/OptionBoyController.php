@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth;
 use App\Models\Club;
 use App\Models\City;
 use App\Models\Age;
+use App\Models\Boy;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -31,6 +32,8 @@ class OptionBoyController extends Controller
         $boy = DB::table('boys')->get();
         $clubs = Club::get();
         $cities = City::all();
+        $boys = Boy::with(['age'])->get();
+        // return view('admin.boy_info',compact('boys'));
         return view('boy.option_register',compact('boy','clubs','cities'));
     }
 

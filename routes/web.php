@@ -5,6 +5,7 @@ use App\Http\Controllers\Boy\BoyController;
 use App\Http\Controllers\Boy\OptionBoyController;
 use App\Http\Controllers\Girl\GirlController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\BoyAdminController;
 
 
 /*
@@ -107,14 +108,20 @@ Route::namespace('/Boy')
     Route::namespace('/Admin')
     ->middleware(['auth:admin'])
     ->group(function() {
+        Route::get('/admin', [AdminController::class, 'index'])
+            ->name('index');
 
         Route::group([
-            'prefix' => '/admin',
-            'as' => 'admin.',
+            'prefix' => '/admin/boy',
+            'as' => 'admin.boy',
         ], function() {
-            Route::get('/', [AdminController::class, 'index'])
-            ->name('index');
+            // Route::get('/', [AdminController::class, 'index'])
+            // ->name('index');
+
+            Route::get('/boy/details', [BoyAdminController::class, 'index'])
+            ->name('details');
         });
+
          // End Workspace Routes
 
     });
