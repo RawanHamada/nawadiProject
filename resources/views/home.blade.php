@@ -42,10 +42,12 @@
     <section class="sec-one">
         <p class="p-one">نوادي ... الوقت المفيد .. وأكثر</p>
         <div class="sec-one-btn">
-            <a id="btn-btn1" href="{{route('boy.option')}}
+            <a id="btn-btn1" href="{{route('boy.option' ,['type' => 'boy'])}}
             {{-- {{ route('register',['type' => 'boy']) }} --}}
             ">تسجيل البنين</a>
-            <a id="btn-btn2" href="{{ route('girl.create') }}">تسجيل البنات</a>
+            <a id="btn-btn2" href=" {{ route('girl.option' ,['type' => 'girl']) }}
+            {{-- {{ route('girl.create') }} --}}
+            ">تسجيل البنات</a>
             {{-- <button >تسجيل البنين</button> --}}
             {{-- <button id="btn-btn2">تسجيل البنات</button> --}}
         </div>

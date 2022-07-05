@@ -15,6 +15,7 @@
 
     <form id="form" class="form" action="{{ route('boy.store') }}" method="POST">
         @csrf
+        <input type="hidden" name="type" value="{{$type}}">
         <div class="age">
             <label for="text">المدينة</label>
             <select name="city_name" class="form-control">

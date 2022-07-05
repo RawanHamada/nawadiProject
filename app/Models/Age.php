@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\Boy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,6 +14,7 @@ class Age extends Model
 
     public function boys()
     {
-        return $this->hasMany(Boy::class, 'age_id')->withDefault();
+        return $this->hasMany(Boy::class, 'age_id');
+        // ->withDefault();
     }
 }

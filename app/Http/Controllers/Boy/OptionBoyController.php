@@ -27,14 +27,14 @@ class OptionBoyController extends Controller
 
         // $city = Club::get();
     }
-    public function create()
+    public function create($type)
     {
         $boy = DB::table('boys')->get();
         $clubs = Club::get();
         $cities = City::all();
         $boys = Boy::with(['age'])->get();
         // return view('admin.boy_info',compact('boys'));
-        return view('boy.option_register',compact('boy','clubs','cities'));
+        return view('boy.option_register',compact('boy','clubs','cities','type'));
     }
 
     public function store(Request $request)
@@ -59,8 +59,8 @@ class OptionBoyController extends Controller
 
         // ]);
         $ages =Age::all();
-
-        return view('auth.register',compact('ages'));
+        $type = $request->type;
+        return view('auth.register',compact('ages' , 'type'));
 
 
 

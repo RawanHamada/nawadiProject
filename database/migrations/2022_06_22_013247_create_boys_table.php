@@ -22,7 +22,6 @@ class CreateBoysTable extends Migration
             $table->string('class',13)->unique;
             $table->string('school',100);
             $table->string('neighborhood',100);
-            $table->string('age',100);
             $table->enum('move',['yes','no'])->default('yes');
             $table->json('photo');
             $table->string('employee');

@@ -5,7 +5,7 @@
 @section('content')
 
 
-    <form id="form" class="form" action="{{ route('boy.store') }}" method="POST">
+    <form id="form" class="form" action="{{ route('login') }}" method="POST">
         @csrf
         <div >
             <x-label for="email" :value="__('البريد الالكترني')" />

@@ -1,7 +1,7 @@
 <x-head-home />
 
 <body>
-    <x-nav />
+    <x-nav-admin />
     <!-- start second navbar -->
     <nav id="sec-nav" class="navbar navbar-light  justify-content-between">
         <a class="navbar-brand">
@@ -42,10 +42,10 @@
     <section class="sec-one">
         <p class="p-one">نوادي ... الوقت المفيد .. وأكثر</p>
         <div class="sec-one-btn">
-            <a id="btn-boy"  href="#
-            {{-- {{route('admin.boy.details')}} --}}
+            <a id="btn-boy"  href="
+            {{route('boy.first')}}
 
-            ">تفاصيل الذكور</a>
+            ">تفاصيل البنين</a>
             <a id="btn-girl" href="
             {{-- {{ route('girl.create') }} --}}
 

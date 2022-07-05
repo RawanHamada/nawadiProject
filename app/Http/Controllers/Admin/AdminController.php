@@ -12,9 +12,8 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $age = Age::all();
-        $boys = Boy::where('age_id', "=" , $age->id )->first();
 
-        return view('admin.index',compact('boys'));
+
+        return view('admin.index');
     }
 }

@@ -15,7 +15,7 @@
 </head>
 
 <body style="display: block">
-    @yield('nav')
+    <x-nav-boy-category />
     {{-- <x-sidebar /> --}}
     <div class="col-12 mt-5">
         <div class="card">
@@ -27,18 +27,7 @@
                 <div class="single-table">
                     <div class="table-responsive">
                         <table class="table">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th scope="col">الرقم</th>
-                                    <th scope="col">الاسم</th>
-
-                                    <th scope="col">رقم الجوال الأول </th>
-                                    <th scope="col">رقم الجوال الثاني </th>
-                                    <th scope="col">تفاصيل البيانات  </th>
-                                    {{-- <th scope="col">صورة الطالب</th> --}}
-                                </tr>
-                            </thead>
-
+                            
                             @yield('content')
 
                         </table>

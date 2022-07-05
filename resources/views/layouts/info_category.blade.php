@@ -15,7 +15,7 @@
 </head>
 
 <body style="display: block">
-    @yield('nav')
+<x-nav-boy-category />
     {{-- <x-sidebar /> --}}
     <div class="col-12 mt-5">
         <div class="card">
@@ -24,8 +24,13 @@
                     @yield('page_header')
                 </h4>
                 <h4 class="sub-header">
+                    اسم المشرف
+                    <input type="text">
+                </h4>
+                <h4 class="sub-header">
                     @yield('sub_header')
                 </h4>
+
                 <div class="single-table">
                     <div class="table-responsive">
                         <table class="table">

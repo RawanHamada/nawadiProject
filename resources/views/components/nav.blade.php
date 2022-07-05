@@ -15,18 +15,15 @@
                     <a class="nav-link" href="{{ route('home') }}">الرئيسية <span class="sr-only">(current)</span></a>
                 </li>
                 <li @if (Request::is('boy/option_register'))  @endif class="nav-item">
-                    <a class="nav-link" href="{{route('boy.option')}}
+                    <a class="nav-link" href="{{ route('boy.option',['type' => 'boy']) }}
                     {{-- {{ route('register',['type' => 'boy']) }} --}}
                     ">تسجيل البنين</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('girl.create') }}">تسجيل البنات</a>
+                    <a class="nav-link" href="{{ route('girl.option' ,['type' => 'girl']) }}">تسجيل البنات</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">بحث</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">اتصل بنا</a>
+                    <a class="nav-link" href="{{ route('contact') }}">اتصل بنا</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}
