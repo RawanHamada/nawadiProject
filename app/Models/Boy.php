@@ -2,6 +2,8 @@
 
 namespace App\Models;
 use App\Models\Age;
+use App\Models\City;
+use App\Models\Club;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,7 +18,6 @@ class Boy extends Model
         'class',
         'school',
         'neighborhood',
-        'age',
         'move',
         'photo',
         'employee',
@@ -31,6 +32,31 @@ class Boy extends Model
     public function age()
     {
         return $this->belongsTo(Age::class, 'age_id')->withDefault();
+    }
+
+    /**
+     * Get the city that owns the Boy
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id');
+    }
+
+    /**
+     * Get the club that owns the Boy
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function club()
+    {
+        return $this->belongsTo(Club::class, 'club_id');
+    }
+
+    public static function getBoy(){
+        $records =Boy::all()->toArray();
+        return $records;
     }
 
 }

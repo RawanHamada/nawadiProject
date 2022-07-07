@@ -125,10 +125,7 @@ Route::namespace('/Admin')
             'prefix' => '/admin',
             'as' => 'boy.',
         ], function () {
-            // Route::get('/', [AdminController::class, 'index'])
-            // ->name('index');
-            // Route::get('/details', [BoyAdminController::class, 'index'])
-            //     ->name('details');
+          
             Route::get('/info', [BoyAdminController::class, 'index'])
                 ->name('info');
             Route::get('/first', [BoyAdminController::class, 'first'])
@@ -142,6 +139,12 @@ Route::namespace('/Admin')
             Route::get('/{id}', [BoyAdminController::class, 'show'])
                 ->name('show');
             Route::get('/{id}/edit', [BoyAdminController::class, 'edit'])->name('edit');
+            Route::put('/{id}', [BoyAdminController::class, 'update'])->name('update');
+
+            Route::get('/export', [BoyAdminController::class, 'export'])->name('export');
+
+
+            // Route::get('/export-excel', [BoyAdminController::class, 'export'])->name('export');
 
         });
 

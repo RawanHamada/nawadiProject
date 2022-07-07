@@ -56,4 +56,5 @@
             </tr>
         @endforeach
     </tbody>
+
 @endsection

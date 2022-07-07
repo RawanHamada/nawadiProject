@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Models\Boy;
+use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\Models\Age;
-use Illuminate\Http\Request;
+use App\Exports\BoyExport;
+use Maatwebsite\Excel\Facades\Excel;
+
+
+// use Excel;
 
 class BoyAdminController extends Controller
 {
@@ -14,7 +19,7 @@ class BoyAdminController extends Controller
         // $age = Age::all();
         // $boys = Boy::where('age_id', "=" , $age->id )->first();
         // $boys = Boy::with(['age'])->get();
-        $boys = Boy::all();
+        $boys = Boy::paginate(4);
         return view('admin.boy.boy_info',compact('boys'));
     }
 
@@ -49,8 +54,36 @@ class BoyAdminController extends Controller
     {
         // $boy = Auth::guard(session('guardName'))->user($id);
         $boy = Boy::findOrFail($id);
+        $ages =Age::all();
+        $ageAll = Age::with(['boys'])->get();
+    //   $boy_id = Boy::where('age_id', "=" , $ageAll[$id] )->first();
+    //   $age_id = Age::where('id', "=" , $ages[$boy->age_id] )->first();
 
-        return view('admin.boy.edit',compact('boy'));
+        // dd($age_id);
+        return view('admin.boy.edit',compact('boy','ages','ageAll'));
+
+    }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $boy = Boy::findOrfail($id);
+        $boy->age_id =$request->current_age;
+        $boy->old_age_id =$request-> age_old;
+        $boy->save();
+
+        return redirect()->route('boy.info');
+
+    }
+
+    public function export(){
+
+        return Excel::download(new BoyExport, 'boylist.xlsx');
 
     }
 

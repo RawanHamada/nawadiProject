@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Age;
+
 use App\Models\Boy;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -84,6 +85,10 @@ class RegisteredUserController extends Controller
                 'photo' => $image,
                 'employee' =>  $request->employee,
                 'condition' =>  $request->condition,
+                'club_id' =>  session()->get('club'),
+
+                'city_id' =>  session()->get('city'),
+
                 'year' =>  2020 + 1,
             ]);
             // return view('boy.index');
@@ -106,7 +111,7 @@ class RegisteredUserController extends Controller
                 'class' => ['required'],
                 'school' => ['required'],
                 'neighbor' => ['required'],
-                'age' => ['required'],
+                // 'age' => ['required'],
                 'move' => ['required'],
                 'photo' => ['nullable'],
                 'employee' => ['nullable'],
@@ -135,6 +140,8 @@ class RegisteredUserController extends Controller
                 'school' =>  $request->school,
                 'neighborhood' =>  $request->neighbor,
                 'age_id' =>  $request->age,
+                // 'age_id' =>  null,
+                // 'current_age_id' =>  $request->age,
                 'move' =>  $request->move,
                 'photo' => $image,
                 'employee' =>  $request->employee,

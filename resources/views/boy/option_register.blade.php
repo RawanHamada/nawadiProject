@@ -19,9 +19,9 @@
         <div class="age">
             <label for="text">المدينة</label>
             <select name="city_name" class="form-control">
-                <option selected>اختر</option>
+                {{-- <option selected>اختر</option> --}}
                 @foreach ($cities as $city)
-                <option value="
+                <option selected value="
                 {{$city->id}}
                 ">
                     {{$city->city_name}}
@@ -32,9 +32,9 @@
         <div class="age">
             <label for="text">الاندية المتاحة</label>
             <select name="club_name" class="form-control">
-                <option selected>اختر</option>
+                {{-- <option selected>اختر</option> --}}
                 @foreach ($clubs as $club)
-                <option value="{{$club->club_name}}">{{$club->club_name}}</option>
+                <option selected value="{{$club->id}}">{{$club->club_name}}</option>
                 @endforeach
             </select>
         </div>

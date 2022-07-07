@@ -27,7 +27,7 @@
                 <div class="single-table">
                     <div class="table-responsive">
                         <table class="table">
-                            
+
                             @yield('content')
 
                         </table>
@@ -38,7 +38,9 @@
     </div>
 
 
+    {{ $boys->links() }}
 
 </body>
+
 
 </html>

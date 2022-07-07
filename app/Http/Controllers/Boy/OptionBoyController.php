@@ -40,7 +40,8 @@ class OptionBoyController extends Controller
     public function store(Request $request)
     {
 
-            $validator =$request->validate([
+            // $validator =
+            $request->validate([
                 'city_name' => ['required'],
                 'club_name' => ['required'],
 
@@ -50,8 +51,8 @@ class OptionBoyController extends Controller
             //     dd($validator);
             // }
 
-        //     Session::put('city',  $request->city_name);
-        //     Session::put('club',  $request->club_name);
+            Session::put('club',  $request->club_name);
+            Session::put('city',  $request->city_name);
 
         //     Club::create([
         //     'club_name' => $request->club_name,
@@ -60,7 +61,10 @@ class OptionBoyController extends Controller
         // ]);
         $ages =Age::all();
         $type = $request->type;
-        return view('auth.register',compact('ages' , 'type'));
+        // $club = Club::all();
+        // $club_id = $request->session()->get('club', $club->id);
+
+        return view('auth.register',compact('ages' , 'type' ));
 
 
 
